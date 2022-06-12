@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,6 +8,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Place = (props) => {
 
     const [state, setstate] = useState(false);
+
+
+    useEffect(() => {
+        setstate(props.statePlace)
+    }, [props.statePlace]) 
 
     const toggleState = () => {
        state ? setstate(false) : setstate(true)
