@@ -12,13 +12,13 @@ const Map = () => {
   useEffect(() => {
     socket.on('arduino:data', (data) => {
 
-      console.log(data.value)
+      
       if (data.value < 11 ){
         setstate(true)
-        
       } else {
         setstate(false)
       }
+      console.log(data.value)
     })
 
   })
