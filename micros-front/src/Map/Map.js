@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 
 const socket = io.connect("http://localhost:5000")
 
-
 const Map = () => {
   
   const [state, setstate] = useState();
@@ -13,8 +12,10 @@ const Map = () => {
   useEffect(() => {
     socket.on('arduino:data', (data) => {
 
-      if (data.value === '1') {
+      console.log(data.value)
+      if (data.value < 11 ){
         setstate(true)
+        
       } else {
         setstate(false)
       }
